@@ -56,3 +56,18 @@ li span {
   color: #999;
   font-size: 14px;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111;
+    color: #eee;
+  }
+
+  a {
+    color: #eee;
+  }
+
+  li span {
+    color: #666;
+  }
+}
