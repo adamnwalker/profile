@@ -1,0 +1,92 @@
+import Image from 'next/image'
+
+<a href="/" className="back-link">↩ Index</a>
+
+# Finding signal in the noise 
+<span className="date">January, 2020</span>
+
+
+It was a well documented problem, Jira's email notifications were 'noisy' and overwhelming users. The goal was to solve that first, then
+use the learnings to build a self-service notification platform that could scale across multiple products.
+
+<div className="wide">
+  <figure className="bordered">
+    <Image
+      src="/images/mobile-notification.png"
+      alt="Confluence full-screen AI command palette"
+      width={800}
+      height={500}
+      style={{ width: '100%', height: 'auto' }}
+      priority
+    />
+    <figcaption>The platform supported notification across email, web and mobile.</figcaption>
+  </figure>
+</div>
+
+---
+
+## Problem
+
+Jira email chattiness had been voted one of the top three pain points on the
+public-facing support tracker. Reducing volume was a clear priority, but the
+risk was real, any changes could disrupt workflows that customers had built
+around existing notifications. The solution needed to be general-purpose
+enough to serve more than one product from the start.
+
+## Early results
+
+An initial solution rolled out to a small cohort of early adopters showed
+promise. Grouping related notifications into single emails resulted in a 60%
+reduction in email volume. Feedback from that cohort was largely positive,
+though the research synthesis surfaced nuance worth addressing, users
+responded well to structured templates, but output from custom notification
+prompts was identified as poor.
+
+## System design
+
+The platform was built around four core ideas. Related content is grouped into
+a single notification to improve consumption and coherence, while high-priority
+notifications are always sent immediately and never grouped with others.
+
+<div className="wide">
+  <figure className="bordered">
+    <Image
+      src="/images/email-jira-batch.png"
+      alt="Confluence full-screen AI command palette"
+      width={800}
+      height={500}
+      style={{ width: '100%', height: 'auto' }}
+      priority
+    />
+    <figcaption>Grouping and batching resulted in a 60% volumn reduction.</figcaption>
+  </figure>
+</div>
+
+Notification templates were optimised for specific use cases and channels
+rather than relying on a one-size-fits-all format. A diff model, showing
+before and after event content gives recipients enough context to act without
+needing to open the source product.
+
+---
+
+## Outcome
+
+Jira email volume was cut by 60%, meaningfully reducing inbox clutter and
+lowering operational costs. The improved template design lifted the clarity of
+email content and drove higher user satisfaction scores. 
+
+<div className="wide">
+  <figure>
+    <Image
+      src="/images/web-notification-panel.png"
+      alt="Confluence full-screen AI command palette"
+      width={800}
+      height={500}
+      style={{ width: '100%', height: 'auto' }}
+      priority
+    />
+    <figcaption>In app notifications followed the same grouping logic.</figcaption>
+  </figure>
+</div>
+
+Beyond Jira, the platform's success drove adoption from additional products, validating the decision to build for scale from the beginning.
