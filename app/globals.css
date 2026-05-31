@@ -95,6 +95,7 @@ a:hover {
 
 ul {
   list-style: none;
+  border-bottom: .5px solid #e5e5e5;
 }
 
 li {
@@ -102,6 +103,25 @@ li {
   justify-content: space-between;
   padding: 4px 0;
   font-size: 14px;
+  border-top: .5px solid #e5e5e5;
+  padding: 12px 0;
+  position: relative;
+}
+
+li a {
+  text-decoration: none;
+}
+
+li a::before {
+  content: '›';
+  position: absolute;
+  left: -24px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+li a:hover::before {
+  opacity: 1;
 }
 
 li span {
@@ -157,6 +177,37 @@ figcaption {
   margin: 14px 0;
 }
 
+
+.symbol {
+  display: block;
+  font-size: 48px;
+  margin-bottom: 24px;
+  position: relative;
+  height: 1.5em;
+}
+
+.symbol span {
+  position: absolute;
+  opacity: 0;
+  animation: cycle 10s infinite;
+  color: #111
+}
+
+.symbol span:nth-child(1) { animation-delay: 0s; }
+.symbol span:nth-child(2) { animation-delay: 2s; }
+.symbol span:nth-child(3) { animation-delay: 4s; }
+.symbol span:nth-child(4) { animation-delay: 6s; }
+.symbol span:nth-child(5) { animation-delay: 8s; }
+
+@keyframes cycle {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+
 @media (prefers-color-scheme: dark) {
   body {
     background: #111;
@@ -190,17 +241,31 @@ figcaption {
     color: #eee;
   }
 
+  li {
+  border-top-color: #333;
+}
+
+  ul {
+  border-bottom-color: #333;
+}
+
   li span {
     color: #666;
   }
+
   figcaption {
     color: #666;
   }
+
   hr {
     border-top-color: #333;
   }
 
   figure.bordered img {
     border-color: #333;
+  }
+
+  .symbol span {
+    color: #eee;
   }
 }
