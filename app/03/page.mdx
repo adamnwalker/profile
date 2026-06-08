@@ -1,11 +1,26 @@
+import Image from 'next/image'
+
 <a href="/" className="back-link">↩ Index</a>
 
 # Never write alone, Rovo Agents
 <span className="date">January, 2024</span>
 
-Customisable AI agents embedded in the Editor across Jira and Confluence, delivered for Team24. Rovo Agents launched as a new product before reaching general availability across both products in September.
+Rovo Agents brought customisable AI agents into the Editor across Jira and
+Confluence, announced at Atlassian's annual conference, Team24 and reaching general availability in September.
 
-At launch, agents were primarily accessed through a chat sidebar — a conversational interface embedded directly within the product.
+<div className="wide">
+  <figure>
+    <Image
+      src="/images/confluence-full-screen-agent-pallet.png"
+      alt="Confluence full-screen AI command palette"
+      width={800}
+      height={500}
+      style={{ width: '100%', height: 'auto' }}
+      priority
+    />
+    <figcaption>Accessing an Agents capbilities from the Editor.</figcaption>
+  </figure>
+</div>
 
 ---
 
@@ -13,9 +28,13 @@ At launch, agents were primarily accessed through a chat sidebar — a conversat
 
 Working in a new space, I took a step back to develop principles that would guide design decisions. A key starting point was teasing apart general AI from agents.
 
-- **Personified AI** — The teammate mental model sets clear expectations, while remaining honest that this is artificial, not a person.
-- **Collaborative** — Multi-turn chat is a powerful way to help users navigate ambiguous problems. Where the problem isn't ambiguous, a bot or automation is often the better answer.
-- **Suggestions** — Agents have no agency to complete tasks unilaterally. Trust is everything, so users need to always be in control.
+**Personified AI** The teammate mental model sets clear expectations, while remaining honest that this is artificial, not a person.
+
+**Collaborative** Multi-turn chat is a powerful way to help users navigate ambiguous problems. Where the problem isn't ambiguous, a bot or automation is often the better answer.
+
+**Suggestions** Agents have no agency to complete tasks unilaterally. Trust is everything, so users need to always be in control.
+
+---
 
 ## Vision
 
@@ -23,15 +42,27 @@ Working in a new space, I took a step back to develop principles that would guid
 
 The vision was a multiplayer-style UX in the Editor, where agents felt like real collaborators rather than tools you invoke.
 
+<div className="wide">
+  <figure>
+    <Image
+      src="/images/confluence-full-screen-agent-feedback.png"
+      alt="Confluence full-screen AI command palette"
+      width={800}
+      height={500}
+      style={{ width: '100%', height: 'auto' }}
+      priority
+    />
+    <figcaption>Agent collaboration include edit suggestions and comments.</figcaption>
+  </figure>
+</div>
+
 ## Design direction
 
-Following the principles, the focus was on making collaboration with agents feel natural — the same way you'd work with a teammate.
+Following the principles, the focus was on making collaboration with agents feel natural, the same way you'd work with a teammate.
 
 That meant extending Edit Suggestions, typically used for human edits, to support agent changes. A human still accepts or rejects every suggestion. Agents also bring specific skills and knowledge that can be called on directly within the editor.
 
-From there, agents were designed to provide additional context and support when teammates are unavailable — commenting, linking to relevant knowledge, and surfacing information from across the organisation.
-
-## MVP
+From there, agents were designed to provide additional context and support when teammates are unavailable, commenting, linking to relevant knowledge, and surfacing information from across the organisation.
 
 To meet the GA milestone, the command palette was extended to become the Agent Palette. A chat integration allowed users to move content fluidly between the chat sidebar and the editor.
 
